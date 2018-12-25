@@ -6,8 +6,10 @@ using SolutionLib.Tools;
 namespace LeecodeSolution {
     class Program {
         static void Main (string[] args) {
-            Question1 q = new Question1 ();
-            WatchDog.ShowPerformance(q.TwoSum);
+            int[] nums = { 1, 2, 3, 4 };
+            int target = 5;
+            Question1 q1 = new Question1 ();
+            WatchDog.ShowPerformance(q1.TwoSum, nums, target);
         }
     }
 }
