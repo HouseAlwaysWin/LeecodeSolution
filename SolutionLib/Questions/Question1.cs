@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using SolutionLib.Tools;
 
 namespace SolutionLib.Questions {
-    public class Question1 {
+    public class Question1 : IQuestion {
         /*
         Question1:
         Given an array of integers, return indices of the two numbers such that they add up to a specific target.
@@ -18,13 +19,19 @@ namespace SolutionLib.Questions {
         return [0, 1].
 
          */
-         /// <summary>
-         /// Question1 Solution
-         /// </summary>
-         /// <param name="nums"></param>
-         /// <param name="target"></param>
-         /// <returns></returns>
-        public int[] TwoSum (int[] nums, int target) {
+        public void Run () {
+            int[] nums = { 1, 200, 3, 4 };
+            int target = 203;
+            Question1 q1 = new Question1 ();
+            WatchDog.ShowPerformance (q1.TwoSum, nums, target);
+        }
+        /// <summary>
+        /// Question1 Solution
+        /// </summary>
+        /// <param name="nums"></param>
+        /// <param name="target"></param>
+        /// <returns></returns>
+        private int[] TwoSum (int[] nums, int target) {
             Dictionary<int, int> dict = new Dictionary<int, int> ();
             for (int i = 0; i < nums.Length; i++) {
                 int complement = target - nums[i];

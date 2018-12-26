@@ -1,15 +1,27 @@
 ﻿using System;
 using System.Diagnostics;
+using System.IO;
+using System.Reflection;
 using SolutionLib.Questions;
 using SolutionLib.Tools;
 
 namespace LeecodeSolution {
     class Program {
         static void Main (string[] args) {
-            int[] nums = { 1, 2, 3, 4 };
-            int target = 7;
-            Question1 q1 = new Question1 ();
-            WatchDog.ShowPerformance(q1.TwoSum, nums, target);
+            var className = $"SolutionLib.Questions.Question{args[0]},SolutionLib";
+            Type type = Type.GetType (className);
+            if (type != null) {
+                var obj = Activator.CreateInstance (type);
+                if (obj != null) {
+                    IQuestion q = (IQuestion) obj;
+                    q.Run ();
+                } else {
+                    System.Console.WriteLine ("Please,add the correct question number in parameter");
+                }
+            } else {
+                System.Console.WriteLine ("Please,add the question number in parameter");
+            }
         }
+
     }
 }
