@@ -8,19 +8,25 @@ using SolutionLib.Tools;
 namespace LeecodeSolution {
     class Program {
         static void Main (string[] args) {
-            var className = $"SolutionLib.Questions.Question{args[0]},SolutionLib";
-            Type type = Type.GetType (className);
-            if (type != null) {
-                var obj = Activator.CreateInstance (type);
-                if (obj != null) {
-                    IQuestion q = (IQuestion) obj;
-                    q.Run ();
+            try {
+                var className = $"SolutionLib.Questions.Question{args[0]},SolutionLib";
+                Type type = Type.GetType (className);
+                if (type != null) {
+                    var obj = Activator.CreateInstance (type);
+                    if (obj != null) {
+                        IQuestion q = (IQuestion) obj;
+                        q.Run ();
+                    } else {
+                        System.Console.WriteLine ("Please,add the correct question number in parameter");
+                    }
                 } else {
-                    System.Console.WriteLine ("Please,add the correct question number in parameter");
+                    System.Console.WriteLine ("Please,add the question number in parameter");
                 }
-            } else {
+            } catch (Exception e) {
+                System.Console.WriteLine ($"Exception:{e}");
                 System.Console.WriteLine ("Please,add the question number in parameter");
             }
+
         }
 
     }

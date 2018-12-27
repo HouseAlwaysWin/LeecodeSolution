@@ -28,12 +28,22 @@ namespace SolutionLib.Tools {
             System.Console.WriteLine ($"TimeSpan elapsed time:{watch.Elapsed}");
         }
 
+        public static void ShowPerformance<T1, T2> (Func<T1, T2> method, T1 t1) {
+            Stopwatch watch = new Stopwatch ();
+            watch.Start ();
+            var result = method (t1);
+            watch.Stop ();
+            string jsonResult = JsonConvert.SerializeObject (result);
+            System.Console.WriteLine ($"TimeSpan elapsed time:{watch.Elapsed}");
+            System.Console.WriteLine ($"Result:{jsonResult}");
+        }
+
         public static void ShowPerformance<T1, T2, T3> (Func<T1, T2, T3> method, T1 t1, T2 t2) {
             Stopwatch watch = new Stopwatch ();
             watch.Start ();
             var result = method (t1, t2);
-            string jsonResult = JsonConvert.SerializeObject (result);
             watch.Stop ();
+            string jsonResult = JsonConvert.SerializeObject (result);
             System.Console.WriteLine ($"TimeSpan elapsed time:{watch.Elapsed}");
             System.Console.WriteLine ($"Result:{jsonResult}");
         }
