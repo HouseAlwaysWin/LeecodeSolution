@@ -1,3 +1,7 @@
+using System;
+using System.Collections.Generic;
+using SolutionLib.Tools;
+
 namespace SolutionLib.Questions {
     public class Question13 : IQuestion {
         /*
@@ -44,9 +48,42 @@ namespace SolutionLib.Questions {
         Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
          */
         public void Run () {
+            System.Console.Write ("Enter Roman Number:");
+            // var number = Console.ReadLine ();
+            // System.Console.WriteLine(number);
+            WatchDog.ShowPerformance (RomanToInt, "MCMXCIV");
 
         }
         private int RomanToInt (string s) {
+            Dictionary<char, int> romanMapping = new Dictionary<char, int> { { 'I', 1 },
+                { 'V', 5 },
+                { 'X', 10 },
+                { 'L', 50 },
+                { 'C', 100 },
+                { 'D', 500 },
+                { 'M', 1000 }
+            };
+            int number = 0;
+
+            for (int i = 0; i < s.Length; i++) {
+                int word = romanMapping[s[i]];
+                int nextword = 0;
+                if (i != s.Length - 1) {
+                    nextword = romanMapping[s[i + 1]];
+                } else {
+                    nextword = romanMapping[s[i]];
+                }
+
+                if (word >= nextword) {
+                    number += word;
+                } else {
+                    number -= word;
+                }
+            }
+
+            if (number < 3999 && number > 0) {
+                return number;
+            }
             return 0;
         }
     }
