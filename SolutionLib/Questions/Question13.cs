@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using SolutionLib.Tools;
 
@@ -48,11 +49,64 @@ namespace SolutionLib.Questions {
         Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
          */
         public void Run () {
-            System.Console.Write ("Enter Roman Number:");
-            // var number = Console.ReadLine ();
-            // System.Console.WriteLine(number);
+            System.Console.WriteLine ("RomanToInt Performance and Result:");
             WatchDog.ShowPerformance (RomanToInt, "MCMXCIV");
+            System.Console.WriteLine ("RomanToIntV2 Performance and Result:");
+            WatchDog.ShowPerformance (RomanToIntV2, "MMMCMXL");
+        }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        private int RomanToIntV2 (string s) {
+            int i = s.Length - 1;
+            int prevNum = 0;
+            int result = 0;
+            while (i >= 0) {
+                char word = s[i];
+                int num = 0;
+                switch (word) {
+                    case 'I':
+                        num = 1;
+                        break;
+                    case 'V':
+                        num = 5;
+                        break;
+                    case 'X':
+                        num = 10;
+                        break;
+                    case 'L':
+                        num = 50;
+                        break;
+                    case 'C':
+                        num = 100;
+                        break;
+                    case 'D':
+                        num = 500;
+                        break;
+                    case 'M':
+                        num = 1000;
+                        break;
+                    default:
+                        return 0;
+                }
+                if (i == s.Length - 1) {
+                    result = num;
+                } else {
+                    if (num >= prevNum) {
+                        result += num;
+                    } else {
+                        result -= num;
+                    }
+                }
+
+                prevNum = num;
+                i--;
+            }
+          
+            return result;
         }
         private int RomanToInt (string s) {
             Dictionary<char, int> romanMapping = new Dictionary<char, int> { { 'I', 1 },
@@ -80,10 +134,7 @@ namespace SolutionLib.Questions {
                     number -= word;
                 }
             }
-
-            if (number < 3999 && number > 0) {
-                return number;
-            }
+          
             return 0;
         }
     }
