@@ -1,7 +1,7 @@
-namespace SolutionLib.Questions
-{
-    public class Question14 : IQuestion
-    {
+using SolutionLib.Tools;
+
+namespace SolutionLib.Questions {
+    public class Question14 : IQuestion {
         /*
         Write a function to find the longest common prefix string amongst an array of strings.
 
@@ -20,17 +20,15 @@ namespace SolutionLib.Questions
 
         All given inputs are in lowercase letters a-z.
          */
-        public void Run()
-        {
-            throw new System.NotImplementedException();
+        public void Run () {
+            // WatchDog.ShowPerformance(LongestCommonPrefix,"");
         }
 
-        public string LongestCommonPrefix(string[] strs)
-        {
-            foreach (var item in strs)
-            {
+        public string LongestCommonPrefix (string[] strs) {
+            foreach (var item in strs) {
 
             }
+            return "";
         }
     }
 }

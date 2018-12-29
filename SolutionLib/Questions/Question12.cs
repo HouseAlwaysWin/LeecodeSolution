@@ -1,9 +1,10 @@
+using System;
+using System.Linq;
+using System.Text;
 using SolutionLib.Tools;
 
-namespace SolutionLib.Questions
-{
-    public class Question12 : IQuestion
-    {
+namespace SolutionLib.Questions {
+    public class Question12 : IQuestion {
         /*
         Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.
 
@@ -47,13 +48,33 @@ namespace SolutionLib.Questions
         Output: "MCMXCIV"
         Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
          */
-        public void Run()
-        {
-            WatchDog.ShowPerformance(IntToRomanV2, 123);
+        public void Run () {
+            int number = 3999;
+            System.Console.WriteLine ("V1:");
+            WatchDog.ShowPerformance (IntToRoman, number);
+            System.Console.WriteLine ("V2:");
+            WatchDog.ShowPerformance (IntToRomanV2, number);
+            System.Console.WriteLine ("V3:");
+            WatchDog.ShowPerformance (IntToRomanV3, number);
+            StringBuilder s = new StringBuilder ("a");
         }
 
-        private string IntToRomanV2(int num)
-        {
+        private string IntToRomanV3 (int num) {
+            int[] values = { 1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1 };
+            String[] strs = { "M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I" };
+
+            StringBuilder sb = new StringBuilder ();
+
+            for (int i = 0; i < values.Length; i++) {
+                while (num >= values[i]) {
+                    num -= values[i];
+                    sb.Append (strs[i]);
+                }
+            }
+            return sb.ToString ();
+        }
+
+        private string IntToRomanV2 (int num) {
             string[] M = { "", "M", "MM", "MMM" };
             string[] C = { "", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM" };
             string[] X = { "", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC" };
@@ -61,22 +82,43 @@ namespace SolutionLib.Questions
             return M[num / 1000] + C[(num % 1000) / 100] + X[(num % 100) / 10] + I[num % 10];
         }
 
-        private string IntToRoman(int num)
-        {
-            int result = 0;
-            int pos = 1;
-            while (num > 0)
-            {
-                int reminder = num % 10;
+        private string IntToRoman (int num) {
+            string result = string.Empty;
+            string[] baseFive = { "V", "L", "D" };
+            string[] baseNum = { "I", "X", "C", "M" };
+            int pos = 0;
+            while (num > 0) {
+                int pop = num % 10;
                 num /= 10;
-                if (reminder < 5)
-                {
-                    reminder *= pos;
-                }
 
-                pos *= 10;
+                if (pop == 5) {
+                    result = baseFive[pos] + result;
+                } else if (pop > 5) {
+                    if (pop == 9) {
+                        result = (baseNum[pos] + baseNum[pos + 1] + result);
+                    } else {
+                        var temp = string.Empty;
+                        var reminder = pop % 5;
+                        for (int i = 0; i < reminder; i++) {
+                            temp += baseNum[pos];
+                        }
+                        result = (baseFive[pos] + temp + result);
+                    }
+                } else {
+                    if (pop == 4) {
+                        result = (baseNum[pos] + baseFive[pos] + result);
+                    } else {
+                        var temp = string.Empty;
+                        var reminder = pop % 5;
+                        for (int i = 0; i < reminder; i++) {
+                            temp += baseNum[pos];
+                        }
+                        result = (temp + result);
+                    }
+                }
+                pos++;
             }
-            return "";
+            return result;
         }
     }
 }
