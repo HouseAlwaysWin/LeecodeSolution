@@ -1,8 +1,10 @@
 using System;
 using SolutionLib.Tools;
 
-namespace SolutionLib.Questions {
-    public class Question7 : IQuestion {
+namespace SolutionLib.Questions
+{
+    public class Question7 : IQuestion
+    {
         /*
         Given a 32-bit signed integer, reverse digits of an integer.
 
@@ -25,8 +27,9 @@ namespace SolutionLib.Questions {
         Assume we are dealing with an environment which could only store integers within the 32-bit signed integer range: [−2 square 31,  2 square 31 − 1]. 
         For the purpose of this problem, assume that your function returns 0 when the reversed integer overflows.
          */
-        public void Run () {
-            WatchDog.ShowPerformance (ReverseNumber, -900001);
+        public void Run()
+        {
+            WatchDog.ShowPerformance(ReverseNumber, -900001);
         }
 
         /// <summary>
@@ -34,9 +37,11 @@ namespace SolutionLib.Questions {
         /// </summary>
         /// <param name="number"></param>
         /// <returns></returns>
-        public int ReverseNumber (int number) {
+        public int ReverseNumber(int number)
+        {
             int rev = 0;
-            while (number != 0) {
+            while (number != 0)
+            {
                 int pop = number % 10;
                 number /= 10;
                 if (rev > int.MaxValue / 10 || (rev == int.MaxValue / 10 && pop > 7)) return 0;

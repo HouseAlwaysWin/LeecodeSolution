@@ -1,7 +1,9 @@
 using SolutionLib.Tools;
 
-namespace SolutionLib.Questions {
-    public class Question12 : IQuestion {
+namespace SolutionLib.Questions
+{
+    public class Question12 : IQuestion
+    {
         /*
         Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.
 
@@ -45,11 +47,13 @@ namespace SolutionLib.Questions {
         Output: "MCMXCIV"
         Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
          */
-        public void Run () {
-            WatchDog.ShowPerformance (IntToRomanV2, 123);
+        public void Run()
+        {
+            WatchDog.ShowPerformance(IntToRomanV2, 123);
         }
 
-        private string IntToRomanV2 (int num) {
+        private string IntToRomanV2(int num)
+        {
             string[] M = { "", "M", "MM", "MMM" };
             string[] C = { "", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM" };
             string[] X = { "", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC" };
@@ -57,13 +61,16 @@ namespace SolutionLib.Questions {
             return M[num / 1000] + C[(num % 1000) / 100] + X[(num % 100) / 10] + I[num % 10];
         }
 
-        private string IntToRoman (int num) {
+        private string IntToRoman(int num)
+        {
             int result = 0;
             int pos = 1;
-            while (num > 0) {
+            while (num > 0)
+            {
                 int reminder = num % 10;
                 num /= 10;
-                if (reminder < 5) {
+                if (reminder < 5)
+                {
                     reminder *= pos;
                 }
 

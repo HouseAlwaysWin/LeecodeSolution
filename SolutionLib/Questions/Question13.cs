@@ -3,8 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using SolutionLib.Tools;
 
-namespace SolutionLib.Questions {
-    public class Question13 : IQuestion {
+namespace SolutionLib.Questions
+{
+    public class Question13 : IQuestion
+    {
         /*
         Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.
         
@@ -48,11 +50,12 @@ namespace SolutionLib.Questions {
         Output: 1994
         Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
          */
-        public void Run () {
-            System.Console.WriteLine ("RomanToInt Performance and Result:");
-            WatchDog.ShowPerformance (RomanToInt, "MCMXCIV");
-            System.Console.WriteLine ("RomanToIntV2 Performance and Result:");
-            WatchDog.ShowPerformance (RomanToIntV2, "MMMCMXL");
+        public void Run()
+        {
+            System.Console.WriteLine("RomanToInt Performance and Result:");
+            WatchDog.ShowPerformance(RomanToInt, "MCMXCIV");
+            System.Console.WriteLine("RomanToIntV2 Performance and Result:");
+            WatchDog.ShowPerformance(RomanToIntV2, "MMMCMXL");
         }
 
         /// <summary>
@@ -60,14 +63,17 @@ namespace SolutionLib.Questions {
         /// </summary>
         /// <param name="s"></param>
         /// <returns></returns>
-        private int RomanToIntV2 (string s) {
+        private int RomanToIntV2(string s)
+        {
             int i = s.Length - 1;
             int prevNum = 0;
             int result = 0;
-            while (i >= 0) {
+            while (i >= 0)
+            {
                 char word = s[i];
                 int num = 0;
-                switch (word) {
+                switch (word)
+                {
                     case 'I':
                         num = 1;
                         break;
@@ -92,12 +98,18 @@ namespace SolutionLib.Questions {
                     default:
                         return 0;
                 }
-                if (i == s.Length - 1) {
+                if (i == s.Length - 1)
+                {
                     result = num;
-                } else {
-                    if (num >= prevNum) {
+                }
+                else
+                {
+                    if (num >= prevNum)
+                    {
                         result += num;
-                    } else {
+                    }
+                    else
+                    {
                         result -= num;
                     }
                 }
@@ -105,11 +117,14 @@ namespace SolutionLib.Questions {
                 prevNum = num;
                 i--;
             }
-          
+
             return result;
         }
-        private int RomanToInt (string s) {
-            Dictionary<char, int> romanMapping = new Dictionary<char, int> { { 'I', 1 },
+        private int RomanToInt(string s)
+        {
+            Dictionary<char, int> romanMapping = new Dictionary<char, int>
+            {
+                { 'I', 1 },
                 { 'V', 5 },
                 { 'X', 10 },
                 { 'L', 50 },
@@ -119,22 +134,29 @@ namespace SolutionLib.Questions {
             };
             int number = 0;
 
-            for (int i = 0; i < s.Length; i++) {
+            for (int i = 0; i < s.Length; i++)
+            {
                 int word = romanMapping[s[i]];
                 int nextword = 0;
-                if (i != s.Length - 1) {
+                if (i != s.Length - 1)
+                {
                     nextword = romanMapping[s[i + 1]];
-                } else {
+                }
+                else
+                {
                     nextword = romanMapping[s[i]];
                 }
 
-                if (word >= nextword) {
+                if (word >= nextword)
+                {
                     number += word;
-                } else {
+                }
+                else
+                {
                     number -= word;
                 }
             }
-          
+
             return 0;
         }
     }
