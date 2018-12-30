@@ -11,7 +11,7 @@
             "preLaunchTask": "build",
             "program": "${workspaceFolder}/LeecodeSolution/bin/Debug/netcoreapp2.1/LeecodeSolution.dll",
             "args": [
-                "12"
+                "20"
             ],
             "cwd": "${workspaceFolder}",
             "console": "internalConsole",

@@ -25,6 +25,7 @@ namespace SolutionLib.Questions {
         }
 
         public string LongestCommonPrefix (string[] strs) {
+
             foreach (var item in strs) {
 
             }

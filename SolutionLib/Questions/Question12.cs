@@ -49,14 +49,13 @@ namespace SolutionLib.Questions {
         Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
          */
         public void Run () {
-            int number = 3999;
+            int number = 2345;
             System.Console.WriteLine ("V1:");
             WatchDog.ShowPerformance (IntToRoman, number);
             System.Console.WriteLine ("V2:");
             WatchDog.ShowPerformance (IntToRomanV2, number);
             System.Console.WriteLine ("V3:");
             WatchDog.ShowPerformance (IntToRomanV3, number);
-            StringBuilder s = new StringBuilder ("a");
         }
 
         private string IntToRomanV3 (int num) {
@@ -87,6 +86,7 @@ namespace SolutionLib.Questions {
             string[] baseFive = { "V", "L", "D" };
             string[] baseNum = { "I", "X", "C", "M" };
             int pos = 0;
+
             while (num > 0) {
                 int pop = num % 10;
                 num /= 10;
