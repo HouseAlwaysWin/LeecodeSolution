@@ -26,6 +26,8 @@ namespace SolutionLib.Questions {
             WatchDog.ShowPerformance (LongestCommonPrefix, strs);
             System.Console.WriteLine ("V2:");
             WatchDog.ShowPerformance (LongestCommonPrefixV2, strs);
+            System.Console.WriteLine ("V3:");
+            WatchDog.ShowPerformance (LongestCommonPrefixV3, strs);
 
         }
 
@@ -71,6 +73,18 @@ namespace SolutionLib.Questions {
                     if (string.IsNullOrEmpty (prefix)) return "";
                 }
             return prefix;
+        }
+
+        public string LongestCommonPrefixV3 (string[] strs) {
+            if (strs == null || strs.Length == 0) return "";
+            for (int i = 0; i < strs[0].Length; i++) {
+                char c = strs[0][i];
+                for (int j = 1; j < strs.Length; j++) {
+                    if (i == strs[j].Length || strs[j][i] != c)
+                        return strs[0].Substring (0, i);
+                }
+            }
+            return strs[0];
         }
 
     }
