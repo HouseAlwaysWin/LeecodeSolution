@@ -34,107 +34,55 @@ namespace SolutionLib.Questions {
         Output: true 
         */
         public void Run () {
-            var input = "([)]";
-            System.Console.WriteLine ("V1:");
+            var input = "[(){}[]]";
             WatchDog.ShowPerformance (IsValid, input);
-            System.Console.WriteLine ("V2:");
-            WatchDog.ShowPerformance (IsValidV2, input);
         }
 
-        public bool IsValidV2 (string s) {
-            char[] stack = new char[s.Length / 2];
-            int pointer = 0;
-
-            try {
-                foreach (char c in s) {
-                    switch (c) {
-                        case '(':
-                        case '[':
-                        case '{':
-                            stack[pointer] = c;
-                            pointer++;
-                            break;
-                        case ')':
-                            if (stack[pointer - 1] == '(') {
-                                stack[pointer - 1] = '\u0000';
-                                pointer--;
-                            } else {
-                                return false;
-                            }
-                            break;
-                        case ']':
-                            if (stack[pointer - 1] == '[') {
-                                stack[pointer - 1] = '\u0000';
-                                pointer--;
-                            } else {
-                                return false;
-                            }
-                            break;
-                        case '}':
-                            if (stack[pointer - 1] == '{') {
-                                stack[pointer - 1] = '\u0000';
-                                pointer--;
-                            } else {
-                                return false;
-                            }
-                            break;
-                        default:
-                            return false;
-                    }
-                }
-            } catch {
+        public bool IsValid (string s) {
+            if (s.Length % 2 != 0)
                 return false;
-            }
 
-            if (pointer == 0) return true;
+            char[] stack = new char[s.Length/2];
+            int pos = 0;
+
+            foreach (char c in s) {
+                switch (c) {
+                    case '(':
+                    case '[':
+                    case '{':
+                        stack[pos] = c;
+                        pos++;
+                        break;
+                    case ')':
+                        if (stack[pos - 1] == '(') {
+                            pos--;
+                        } else {
+                            return false;
+                        }
+                        break;
+                    case ']':
+                        if (stack[pos - 1] == '[') {
+                            pos--;
+                        } else {
+                            return false;
+                        }
+                        break;
+                    case '}':
+                        if (stack[pos - 1] == '{') {
+                            pos--;
+                        } else {
+                            return false;
+                        }
+                        break;
+                    default:
+                        return false;
+                }
+            }
+            if (pos == 0) return true;
             else {
                 return false;
             }
         }
 
-        private bool IsValid (string s) {
-            int lastPos = s.Length == 0 ? 0 : s.Length - 1;
-            char[] symbol = new char[lastPos];
-
-            if (s.Length % 2 != 0)
-                return false;
-
-            for (int i = 0; i < s.Length; i++) {
-                switch (s[i]) {
-                    case '(':
-                    case '[':
-                    case '{':
-                        symbol[i] += s[i];
-                        break;
-                    case ')':
-                        if (symbol.Length != 0) {
-                            if (symbol[symbol.Length - 1] == '(') {
-                                symbol[symbol.Length - 1] = ' ';
-                            }
-                        }
-                        break;
-
-                    case ']':
-                        if (symbol.Length != 0) {
-                            if (symbol[symbol.Length - 1] == '[') {
-                                symbol[symbol.Length - 1] = ' ';
-                            }
-                        }
-                        break;
-
-                    case '}':
-                        if (symbol.Length != 0) {
-                            if (symbol[symbol.Length - 1] == '{') {
-                                symbol[symbol.Length - 1] = ' ';
-                            }
-                        }
-                        break;
-                }
-            }
-            if (symbol[symbol.Length - 1] != 0) {
-                return true;
-            }
-            return false;
-        }
     }
 }
