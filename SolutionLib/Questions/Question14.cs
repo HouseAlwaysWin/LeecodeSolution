@@ -21,15 +21,57 @@ namespace SolutionLib.Questions {
         All given inputs are in lowercase letters a-z.
          */
         public void Run () {
-            // WatchDog.ShowPerformance(LongestCommonPrefix,"");
+            string[] strs = { "flower", "flow", "floight" };
+            System.Console.WriteLine ("V1:");
+            WatchDog.ShowPerformance (LongestCommonPrefix, strs);
+            System.Console.WriteLine ("V2:");
+            WatchDog.ShowPerformance (LongestCommonPrefixV2, strs);
+
         }
 
         public string LongestCommonPrefix (string[] strs) {
-
-            foreach (var item in strs) {
-
+            string prefix = string.Empty;
+            if (strs.Length == 0) {
+                return prefix;
             }
-            return "";
+
+            bool allfound = true;
+            // loop through every characher
+            for (int i = 0; i < strs[0].Length; i++) {
+                // base on first word
+                char c = strs[0][i];
+                // loop through every word
+                for (int j = 1; j < strs.Length; j++) {
+                    // make sure word length longer than current length 
+                    if (strs[j].Length > i) {
+                        if (strs[j][i] != c) {
+                            allfound = false;
+                            break;
+                        }
+                    } else {
+                        return prefix;
+                    }
+                }
+
+                if (allfound) {
+                    prefix += c.ToString ();
+                } else {
+                    return prefix;
+                }
+            }
+            return prefix;
         }
+
+        public string LongestCommonPrefixV2 (string[] strs) {
+            if (strs.Length == 0) return "";
+            string prefix = strs[0];
+            for (int i = 1; i < strs.Length; i++)
+                while (strs[i].IndexOf (prefix) != 0) {
+                    prefix = prefix.Substring (0, prefix.Length - 1);
+                    if (string.IsNullOrEmpty (prefix)) return "";
+                }
+            return prefix;
+        }
+
     }
 }
