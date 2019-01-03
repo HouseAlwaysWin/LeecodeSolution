@@ -28,7 +28,6 @@ namespace SolutionLib.Questions {
             WatchDog.ShowPerformance (LongestCommonPrefixV2, strs);
             System.Console.WriteLine ("V3:");
             WatchDog.ShowPerformance (LongestCommonPrefixV3, strs);
-
         }
 
         public string LongestCommonPrefix (string[] strs) {
