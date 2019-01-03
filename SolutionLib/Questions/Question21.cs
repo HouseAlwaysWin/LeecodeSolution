@@ -19,16 +19,16 @@ namespace SolutionLib.Questions {
     public class Question21 : IQuestion {
         public void Run () {
             ListNode n1 = new ListNode (1) {
-                next = new ListNode (2) {
-                next = new ListNode (3)
+                next = new ListNode (3) {
+                next = new ListNode (5)
                 }
             };
-            ListNode n2 = new ListNode (4) {
-                next = new ListNode (5) {
+            ListNode n2 = new ListNode (2) {
+                next = new ListNode (4) {
                 next = new ListNode (6)
                 }
             };
-            WatchDog.ShowPerformance (MergeTwoLists, n1, n2, false);
+            WatchDog.ShowPerformance (MergeTwoLists, n1, n2);
         }
 
         public ListNode MergeTwoLists (ListNode l1, ListNode l2) {
