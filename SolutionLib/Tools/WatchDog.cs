@@ -38,14 +38,16 @@ namespace SolutionLib.Tools {
             System.Console.WriteLine ($"Result:{jsonResult}");
         }
 
-        public static void ShowPerformance<T1, T2, T3> (Func<T1, T2, T3> method, T1 t1, T2 t2) {
+        public static void ShowPerformance<T1, T2, T3> (Func<T1, T2, T3> method, T1 t1, T2 t2, bool showResult = true) {
             Stopwatch watch = new Stopwatch ();
             watch.Start ();
             var result = method (t1, t2);
             watch.Stop ();
-            string jsonResult = JsonConvert.SerializeObject (result);
             System.Console.WriteLine ($"TimeSpan elapsed time:{watch.Elapsed}");
-            System.Console.WriteLine ($"Result:{jsonResult}");
+            if (showResult) {
+                string jsonResult = JsonConvert.SerializeObject (result);
+                System.Console.WriteLine ($"Result:{jsonResult}");
+            }
         }
 
     }

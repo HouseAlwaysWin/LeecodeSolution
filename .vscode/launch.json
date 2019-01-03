@@ -3,20 +3,18 @@
     // 暫留以檢視現有屬性的描述。
     // 如需詳細資訊，請瀏覽: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
-    "configurations": [
-        {
-            "name": ".NET Core Launch (console)",
-            "type": "coreclr",
-            "request": "launch",
-            "preLaunchTask": "build",
-            "program": "${workspaceFolder}/LeecodeSolution/bin/Debug/netcoreapp2.1/LeecodeSolution.dll",
-            "args": [
-                "14"
-            ],
-            "cwd": "${workspaceFolder}",
-            "console": "internalConsole",
-            "stopAtEntry": false,
-            "internalConsoleOptions": "openOnSessionStart"
-        },
-    ]
+    "configurations": [{
+        "name": ".NET Core Launch (console)",
+        "type": "coreclr",
+        "request": "launch",
+        "preLaunchTask": "build",
+        "program": "${workspaceFolder}/LeecodeSolution/bin/Debug/netcoreapp2.1/LeecodeSolution.dll",
+        "args": [
+            "21"
+        ],
+        "cwd": "${workspaceFolder}",
+        "console": "internalConsole",
+        "stopAtEntry": false,
+        "internalConsoleOptions": "openOnSessionStart"
+    }, ]
 }

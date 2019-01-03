@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using SolutionLib.Tools;
 
@@ -34,7 +35,7 @@ namespace SolutionLib.Questions {
         Output: true 
         */
         public void Run () {
-            var input = "[(){}[]]";
+            var input = "[()()()]";
             WatchDog.ShowPerformance (IsValid, input);
         }
 
@@ -42,41 +43,46 @@ namespace SolutionLib.Questions {
             if (s.Length % 2 != 0)
                 return false;
 
-            char[] stack = new char[s.Length/2];
+            char[] stack = new char[s.Length / 2];
             int pos = 0;
 
-            foreach (char c in s) {
-                switch (c) {
-                    case '(':
-                    case '[':
-                    case '{':
-                        stack[pos] = c;
-                        pos++;
-                        break;
-                    case ')':
-                        if (stack[pos - 1] == '(') {
-                            pos--;
-                        } else {
+            try {
+                foreach (char c in s) {
+                    switch (c) {
+                        case '(':
+                        case '[':
+                        case '{':
+                            stack[pos] = c;
+                            pos++;
+                            break;
+                        case ')':
+                            if (stack[pos - 1] == '(') {
+                                pos--;
+                            } else {
+                                return false;
+                            }
+                            break;
+                        case ']':
+                            if (stack[pos - 1] == '[') {
+                                pos--;
+                            } else {
+                                return false;
+                            }
+                            break;
+                        case '}':
+                            if (stack[pos - 1] == '{') {
+                                pos--;
+                            } else {
+                                return false;
+                            }
+                            break;
+                        default:
                             return false;
-                        }
-                        break;
-                    case ']':
-                        if (stack[pos - 1] == '[') {
-                            pos--;
-                        } else {
-                            return false;
-                        }
-                        break;
-                    case '}':
-                        if (stack[pos - 1] == '{') {
-                            pos--;
-                        } else {
-                            return false;
-                        }
-                        break;
-                    default:
-                        return false;
+                    }
                 }
+            } catch (Exception e) {
+                System.Console.WriteLine (e);
+                return false;
             }
             if (pos == 0) return true;
             else {
