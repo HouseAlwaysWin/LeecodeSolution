@@ -1,3 +1,5 @@
+using SolutionLib.Tools;
+
 namespace SolutionLib.Questions {
     public class Question27 : IQuestion {
         /*
@@ -41,11 +43,23 @@ namespace SolutionLib.Questions {
         }
          */
         public void Run () {
-            throw new System.NotImplementedException ();
+            int[] nums = { 0, 1, 2, 2, 3, 0, 4, 2 };
+            int val = 2;
+            WatchDog.ShowPerformance (RemoveElement, nums, val);
+            int len = RemoveElement (nums, val);
+            for (int i = 0; i < len; i++) {
+                System.Console.WriteLine (nums[i]);
+            }
         }
 
         public int RemoveElement (int[] nums, int val) {
-            return 0;
+            int count = 0;
+            for (int i = 0; i < nums.Length; i++) {
+                if (nums[i] != val) {
+                    nums[count++] = nums[i];
+                }
+            }
+            return count;
         }
     }
 }

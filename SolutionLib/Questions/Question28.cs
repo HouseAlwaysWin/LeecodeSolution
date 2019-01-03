@@ -1,3 +1,5 @@
+using SolutionLib.Tools;
+
 namespace SolutionLib.Questions {
     public class Question28 : IQuestion {
         /*
@@ -20,10 +22,17 @@ namespace SolutionLib.Questions {
         For the purpose of this problem, we will return 0 when needle is an empty string. This is consistent to C's strstr() and Java's indexOf().
          */
         public void Run () {
-            throw new System.NotImplementedException ();
+            string haystack = "hello";
+            string needle = "ell";
+            WatchDog.ShowPerformance (StrStr, haystack, needle);
         }
 
         public int StrStr (string haystack, string needle) {
+            if (string.IsNullOrEmpty (needle)) return 0;
+
+            for (int i = 0; i < haystack.Length; i++) {
+
+            }
             return 0;
         }
     }
