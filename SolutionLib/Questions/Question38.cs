@@ -72,11 +72,14 @@ namespace SolutionLib.Questions {
         }
 
         public string CountAndSay (int n) {
-            long word = 0;
-            while (word < n) {
+            int index = 0;
+            string str = string.Empty;
+            while (index < n) {
+                for (int i = 0; i < str.Length; i++) {
 
+                }
             }
-            return "";
+            return str;
         }
 
     }
