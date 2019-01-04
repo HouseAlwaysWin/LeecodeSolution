@@ -26,7 +26,6 @@ namespace SolutionLib.Questions
         public void Run()
         {
             string[] strs = { "flower", "flow", "floight" };
-<<<<<<< HEAD
             System.Console.WriteLine("V1:");
             WatchDog.ShowPerformance(LongestCommonPrefix, strs);
             System.Console.WriteLine("V2:");
@@ -38,14 +37,6 @@ namespace SolutionLib.Questions
             System.Console.WriteLine("V5:");
             WatchDog.ShowPerformance(LongestCommonPrefixV5, strs);
 
-=======
-            System.Console.WriteLine ("V1:");
-            WatchDog.ShowPerformance (LongestCommonPrefix, strs);
-            System.Console.WriteLine ("V2:");
-            WatchDog.ShowPerformance (LongestCommonPrefixV2, strs);
-            System.Console.WriteLine ("V3:");
-            WatchDog.ShowPerformance (LongestCommonPrefixV3, strs);
->>>>>>> 2056296a3414f3574833ffaddd66bc4d8dd8fba2
         }
 
         public string LongestCommonPrefix(string[] strs)
