@@ -1,3 +1,4 @@
+using System.Text;
 using SolutionLib.Tools;
 
 namespace SolutionLib.Questions {
@@ -66,20 +67,82 @@ namespace SolutionLib.Questions {
         "311311222113111231131112132112311321322112111312211312111322212311322113212221"
          */
         public void Run () {
-            int n = 2;
+            int n = 6;
             System.Console.WriteLine ("V1:");
             WatchDog.ShowPerformance (CountAndSay, n);
+            System.Console.WriteLine ("V2:");
+            WatchDog.ShowPerformance (CountAndSayV2, n);
+            System.Console.WriteLine ("V3:");
+            WatchDog.ShowPerformance (CountAndSayV3, n);
+
         }
 
         public string CountAndSay (int n) {
             int index = 0;
             string str = string.Empty;
+            int count = 1;
             while (index < n) {
-                for (int i = 0; i < str.Length; i++) {
-
+                string nextWord = string.Empty;
+                if (index == 0) {
+                    str = "1";
+                } else {
+                    for (int i = 0; i < str.Length; i++) {
+                        if (str.Length == 1) {
+                            nextWord += (count.ToString () + str[i].ToString ());
+                        } else if (i == (str.Length - 1) || str[i] != str[i + 1]) {
+                            nextWord += (count.ToString () + str[i].ToString ());
+                            count = 1;
+                        } else {
+                            count++;
+                        }
+                    }
+                    str = nextWord;
+                    count = 1;
                 }
+                index++;
             }
             return str;
+        }
+
+        public string CountAndSayV2 (int n) {
+            if (n == 1) { return "1"; }
+
+            string s = CountAndSayV2 (n - 1);
+
+            int i = 0;
+            string output = "";
+            while (i < s.Length) {
+
+                int j = i + 1;
+                while (j < s.Length && s[i] == s[j]) {
+                    j += 1;
+                }
+
+                output = output + (j - i) + s[i];
+                i = j;
+            }
+
+            return output;
+        }
+
+        public string CountAndSayV3 (int n) {
+            string curs = "1";
+            for (int j = 1; j < n; ++j) {
+
+                string temp = "";
+                char c = curs[0];
+                int count = 1;
+                for (int i = 1; i < curs.Length; ++i) {
+                    if (curs[i] == c) count++;
+                    else {
+                        temp = temp + count + c; //int and char will be converted to string since temp is a string
+                        c = curs[i];
+                        count = 1;
+                    }
+                }
+                curs = temp + count + c;
+            }
+            return curs;
         }
 
     }
