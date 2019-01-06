@@ -1,3 +1,5 @@
+using SolutionLib.Tools;
+
 namespace SolutionLib.Questions {
     public class Question53 : IQuestion {
         /*
@@ -13,7 +15,9 @@ namespace SolutionLib.Questions {
         If you have figured out the O(n) solution, try coding another solution using the divide and conquer approach, which is more subtle.
          */
         public void Run () {
-            throw new System.NotImplementedException ();
+            int[] nums = { 1, 2, 3 };
+            System.Console.WriteLine ("V1:");
+            WatchDog.ShowPerformance (MaxSubArray, nums);
         }
 
         public int MaxSubArray (int[] nums) {
