@@ -14,14 +14,27 @@ namespace SolutionLib.Questions {
 
         If you have figured out the O(n) solution, try coding another solution using the divide and conquer approach, which is more subtle.
          */
+
         public void Run () {
-            int[] nums = { 1, 2, 3 };
+            int[] nums = {-2, 1, -3, 4, -1, 2, 1, -5, 4 };
             System.Console.WriteLine ("V1:");
             WatchDog.ShowPerformance (MaxSubArray, nums);
         }
 
         public int MaxSubArray (int[] nums) {
-            return 0;
+            int sum = 0;
+            int maxSum = nums[0];
+            for (int i = 0; i < nums.Length; i++) {
+                if (sum < 0) {
+                    sum = nums[i];
+                } else {
+                    sum = sum + nums[i];
+                }
+                if (sum > maxSum)
+                    maxSum = sum;
+            }
+
+            return maxSum;
         }
     }
 }

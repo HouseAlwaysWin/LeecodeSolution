@@ -26,7 +26,6 @@ namespace LeecodeSolution {
                 System.Console.WriteLine ($"Exception:{e}");
                 System.Console.WriteLine ("Please,add the question number in parameter");
             }
-
         }
 
     }
