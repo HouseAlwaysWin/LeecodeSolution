@@ -1,3 +1,5 @@
+using SolutionLib.Tools;
+
 namespace SolutionLib.Questions {
     public class Question58 : IQuestion {
         /*
@@ -13,11 +15,21 @@ namespace SolutionLib.Questions {
         Output: 5
          */
         public void Run () {
-            throw new System.NotImplementedException ();
+            string s = "Hello World sdf    ";
+            System.Console.WriteLine ("V1:");
+            WatchDog.ShowPerformance (LengthOfLastWord, s);
         }
 
         public int LengthOfLastWord (string s) {
-            return 0;
+            int count = 0;
+            for (int i = s.Length - 1; i >= 0; i--) {
+                if (s[i] != ' ') {
+                    count += 1;
+                } else if (count > 0) {
+                    break;
+                }
+            }
+            return count;
         }
 
     }
