@@ -53,6 +53,7 @@ namespace SolutionLib.Questions {
             l.AddAtTail (0);
             l.AddAtIndex (2, 15);
             System.Console.WriteLine (l.Get (2));
+            
         }
 
     }
