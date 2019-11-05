@@ -28,13 +28,19 @@ namespace SolutionLib.Questions {
         3. 2 steps + 1 step
          */
 
-
         public void Run () {
+            int x = 8;
+            System.Console.WriteLine ("V1:");
+            // WatchDog.ShowPerformance (ClimbStairs, x);
         }
 
-        public int ClimbStairs (int n) {
+        // public int ClimbStairs (int n) {
+        //     int num = 1;
+        //     if (n % 2 == 0) {
+        //         num += 1;
+        //     }
 
-        }
+        // }
 
     }
 }
