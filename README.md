@@ -3,6 +3,7 @@
 
 ## How to use 
 
+go to folder LeecodeSolution
 run command
 
 `dotnet run [question number]`
