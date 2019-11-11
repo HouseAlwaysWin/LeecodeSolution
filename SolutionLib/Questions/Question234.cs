@@ -1,3 +1,8 @@
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
+using SolutionLib.Tools;
+
 namespace SolutionLib.Questions {
     public class Question234 : IQuestion {
         /*
@@ -36,18 +41,27 @@ namespace SolutionLib.Questions {
                 }
                 }
             };
+            WatchDog.ShowPerformance (IsPalindrome, list);
+            WatchDog.ShowPerformance (IsPalindrome, list2);
+
         }
 
         public bool IsPalindrome (ListNode head) {
-            var refs = head;
-            var count = 1;
-            while (head != null) {
-                refs = refs.next;
-                count++;
+            var curr = head;
+            Stack<int> stack = new Stack<int> ();
+            while (curr != null) {
+                stack.Push (curr.val);
+                curr = curr.next;
             }
-            if (count % 2 != 0) return false;
-            var index = count / 2;
-            return false;
+            curr = head;
+            while (curr != null) {
+                var node = stack.Pop ();
+                if (curr.val != node) {
+                    return false;
+                }
+                curr = curr.next;
+            }
+            return true;
 
         }
 
