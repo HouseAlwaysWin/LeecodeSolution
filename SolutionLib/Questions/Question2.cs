@@ -1,3 +1,6 @@
+using System;
+using SolutionLib.Tools;
+
 namespace SolutionLib.Questions {
     public class Question2 : IQuestion {
         /*
@@ -12,11 +15,52 @@ namespace SolutionLib.Questions {
         Explanation: 342 + 465 = 807.
          */
         public void Run () {
-            throw new System.NotImplementedException ();
+            ListNode l1 = new ListNode (9) { };
+            ListNode l2 = new ListNode (9);
+            WatchDog.ShowPerformance<ListNode, ListNode, ListNode> (AddTwoNumbers, l1, l2);
         }
 
         public ListNode AddTwoNumbers (ListNode l1, ListNode l2) {
-            return null;
+            if (l1 == null || l2 == null) return null;
+            var head1 = l1;
+            var head2 = l2;
+            ListNode node = null;
+            ListNode curr = null;
+            int process = 0;
+            while (head1 != null || head2 != null || process != 0) {
+                int val = 0;
+                if (head1 != null && head2 != null) {
+                    val = head1.val + head2.val + process;
+                } else if (head1 != null) {
+                    val = head1.val + process;
+                } else if (head2 != null) {
+                    val = head2.val + process;
+                } else {
+                    val = process;
+                }
+
+                process = 0;
+                if (val > 9) {
+                    val = val - 10;
+                    process = 1;
+                }
+                if (node == null) {
+                    node = new ListNode (val);
+                    curr = node;
+                } else {
+                    curr.next = new ListNode (val);
+                    curr = curr.next;
+                }
+
+                if (head1 != null) {
+                    head1 = head1.next;
+                }
+                if (head2 != null) {
+                    head2 = head2.next;
+                }
+            }
+
+            return node;
         }
     }
 }
