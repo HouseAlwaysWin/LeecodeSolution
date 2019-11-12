@@ -1,6 +1,6 @@
 using SolutionLib.Tools;
 
-namespace SolutionLib.Questions {
+namespace SolutionLib.Questions344 {
     public class Question344 : IQuestion {
         /*
         Write a function that reverses a string. The input string is given as an array of characters char[].

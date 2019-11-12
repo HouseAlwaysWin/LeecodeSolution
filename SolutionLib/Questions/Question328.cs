@@ -1,7 +1,7 @@
 using System.Net.NetworkInformation;
 using SolutionLib.Tools;
 
-namespace SolutionLib.Questions {
+namespace SolutionLib.Questions328 {
     public class Question328 : IQuestion {
         /*
         Given a singly linked list, group all odd nodes together followed by the even nodes. 
@@ -24,6 +24,12 @@ namespace SolutionLib.Questions {
         The relative order inside both the even and odd groups should remain as it was in the input.
         The first node is considered odd, the second node even and so on ...
          */
+        public class ListNode {
+            public int val;
+            public ListNode next;
+            public ListNode (int x) { val = x; }
+
+        }
         public void Run () {
             ListNode list = new ListNode (1) {
                 next = new ListNode (2) {

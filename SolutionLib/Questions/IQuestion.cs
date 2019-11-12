@@ -1,4 +1,4 @@
-namespace SolutionLib.Questions {
+namespace SolutionLib {
     public interface IQuestion {
         void Run ();
     }

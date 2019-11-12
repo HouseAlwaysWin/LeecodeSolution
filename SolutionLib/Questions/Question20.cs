@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using SolutionLib.Tools;
 
-namespace SolutionLib.Questions {
+namespace SolutionLib.Questions20 {
     public class Question20 : IQuestion {
         /*
         Given a string containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.

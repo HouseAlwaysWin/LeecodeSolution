@@ -1,7 +1,7 @@
 using System.Text;
 using SolutionLib.Tools;
 
-namespace SolutionLib.Questions {
+namespace SolutionLib.Questions38 {
     public class Question38 : IQuestion {
         /*
         The count-and-say sequence is the sequence of integers with the first five terms as following:

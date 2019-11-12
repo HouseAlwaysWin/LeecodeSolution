@@ -1,7 +1,13 @@
 using System.Collections.Generic;
 using SolutionLib.Tools;
 
-namespace SolutionLib.Questions {
+namespace SolutionLib.Questions160 {
+    public class ListNode {
+        public int val;
+        public ListNode next;
+        public ListNode (int x) { val = x; }
+
+    }
     public class Question160 : IQuestion {
         /*
          Write a program to find the node at which the intersection of two singly linked lists begins.
@@ -45,6 +51,7 @@ namespace SolutionLib.Questions {
             You may assume there are no cycles anywhere in the entire linked structure.
             Your code should preferably run in O(n) time and use only O(1) memory.
          */
+
         public void Run () {
             ListNode same = new ListNode (8) {
                 next = new ListNode (4) {

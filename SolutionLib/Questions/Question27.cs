@@ -1,6 +1,6 @@
 using SolutionLib.Tools;
 
-namespace SolutionLib.Questions {
+namespace SolutionLib.Questions27 {
     public class Question27 : IQuestion {
         /*
         Given an array nums and a value val, remove all instances of that value in-place and return the new length.

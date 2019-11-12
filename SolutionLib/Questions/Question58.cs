@@ -1,6 +1,6 @@
 using SolutionLib.Tools;
 
-namespace SolutionLib.Questions {
+namespace SolutionLib.Questions58 {
     public class Question58 : IQuestion {
         /*
         Given a string s consists of upper/lower-case alphabets and empty space characters ' ', return the length of last word in the string.

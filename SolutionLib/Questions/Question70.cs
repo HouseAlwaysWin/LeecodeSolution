@@ -1,7 +1,7 @@
 using System;
 using SolutionLib.Tools;
 
-namespace SolutionLib.Questions {
+namespace SolutionLib.Questions70 {
     public class Question70 : IQuestion {
         /*
         You are climbing a stair case. It takes n steps to reach to the top.

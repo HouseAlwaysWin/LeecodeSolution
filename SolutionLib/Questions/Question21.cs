@@ -1,6 +1,12 @@
 using SolutionLib.Tools;
 
-namespace SolutionLib.Questions {
+namespace SolutionLib.Questions21 {
+    public class ListNode {
+        public int val;
+        public ListNode next;
+        public ListNode (int x) { val = x; }
+
+    }
     public class Question21 : IQuestion {
         /*
     Merge two sorted linked lists and return it as a new list. The new list should be made by splicing together the nodes of the first two lists.
@@ -10,6 +16,7 @@ namespace SolutionLib.Questions {
     Input: 1->2->4, 1->3->4
     Output: 1->1->2->3->4->4
      */
+
         public void Run () {
             ListNode n1 = new ListNode (1) {
                 next = new ListNode (3) {

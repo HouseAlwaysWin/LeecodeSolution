@@ -1,7 +1,13 @@
 using System.Threading;
 using SolutionLib.Tools;
 
-namespace SolutionLib.Questions {
+namespace SolutionLib.Questions24 {
+    public class ListNode {
+        public int val;
+        public ListNode next;
+        public ListNode (int x) { val = x; }
+
+    }
     public class Question24 : IQuestion {
         /*
         Given a linked list, swap every two adjacent nodes and return its head.
@@ -14,6 +20,7 @@ namespace SolutionLib.Questions {
 
         Given 1->2->3->4, you should return the list as 2->1->4->3.
          */
+
         public void Run () {
             ListNode noloop = new ListNode (1) {
                 next = new ListNode (2) {

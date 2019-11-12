@@ -3,7 +3,13 @@ using System.ComponentModel;
 using System.Linq;
 using SolutionLib.Tools;
 
-namespace SolutionLib.Questions {
+namespace SolutionLib.Questions234 {
+    public class ListNode {
+        public int val;
+        public ListNode next;
+        public ListNode (int x) { val = x; }
+
+    }
     public class Question234 : IQuestion {
         /*
         Given a singly linked list, determine if it is a palindrome.
@@ -19,6 +25,7 @@ namespace SolutionLib.Questions {
         Follow up:
         Could you do it in O(n) time and O(1) space?
          */
+
         public void Run () {
             ListNode list = new ListNode (1) {
                 next = new ListNode (2) {

@@ -1,6 +1,13 @@
 using SolutionLib.Tools;
 
-namespace SolutionLib.Questions {
+namespace SolutionLib.Questions206 {
+
+    public class ListNode {
+        public int val;
+        public ListNode next;
+        public ListNode (int x) { val = x; }
+
+    }
     public class Question206 : IQuestion {
         /*
         Reverse a singly linked list.

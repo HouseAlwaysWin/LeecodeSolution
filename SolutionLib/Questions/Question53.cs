@@ -1,6 +1,6 @@
 using SolutionLib.Tools;
 
-namespace SolutionLib.Questions {
+namespace SolutionLib.Questions53 {
     public class Question53 : IQuestion {
         /*
         Given an integer array nums, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum.

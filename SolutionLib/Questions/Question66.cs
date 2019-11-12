@@ -1,7 +1,7 @@
 using System;
 using SolutionLib.Tools;
 
-namespace SolutionLib.Questions {
+namespace SolutionLib.Questions66 {
     public class Question66 : IQuestion {
         /*  Given a non - empty array of digits representing a non - negative integer, plus one to the integer.
 

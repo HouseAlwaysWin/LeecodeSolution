@@ -1,7 +1,7 @@
 using System;
 using SolutionLib.Tools;
 
-namespace SolutionLib.Questions {
+namespace SolutionLib.Questions69 {
     public class Question69 : IQuestion {
         /*
         Implement int sqrt(int x).

@@ -1,4 +1,4 @@
-namespace SolutionLib.Questions
+namespace SolutionLib.Questions142
 {
     public class Question142
     {

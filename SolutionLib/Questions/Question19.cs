@@ -3,7 +3,14 @@ using System.Net.NetworkInformation;
 using System.Security.Principal;
 using SolutionLib.Tools;
 
-namespace SolutionLib.Questions {
+namespace SolutionLib.Questions19 {
+
+    public class ListNode {
+        public int val;
+        public ListNode next;
+        public ListNode (int x) { val = x; }
+
+    }
     public class Question19 : IQuestion {
         /*
         Given a linked list, remove the n-th node from the end of list and return its head.
@@ -21,6 +28,7 @@ namespace SolutionLib.Questions {
 
         Could you do this in one pass?
          */
+
         public void Run () {
             ListNode test1 = new ListNode (1) {
                 next = new ListNode (2) {

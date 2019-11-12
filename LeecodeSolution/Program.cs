@@ -1,15 +1,12 @@
 ﻿using System;
-using System.Diagnostics;
-using System.IO;
-using System.Reflection;
-using SolutionLib.Questions;
-using SolutionLib.Tools;
+using SolutionLib;
 
-namespace LeecodeSolution {
+namespace LeecodeSolution
+{
     class Program {
         static void Main (string[] args) {
             try {
-                var className = $"SolutionLib.Questions.Question{args[0]},SolutionLib";
+                var className = $"SolutionLib.Questions{args[0]}.Question{args[0]},SolutionLib";
                 Type type = Type.GetType (className);
                 if (type != null) {
                     var obj = Activator.CreateInstance (type);

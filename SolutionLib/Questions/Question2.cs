@@ -1,7 +1,14 @@
 using System;
+using SolutionLib.Questions;
 using SolutionLib.Tools;
 
-namespace SolutionLib.Questions {
+namespace SolutionLib.Questions2 {
+    public class ListNode {
+        public int val;
+        public ListNode next;
+        public ListNode (int x) { val = x; }
+
+    }
     public class Question2 : IQuestion {
         /*
         You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.
@@ -14,6 +21,7 @@ namespace SolutionLib.Questions {
         Output: 7 -> 0 -> 8
         Explanation: 342 + 465 = 807.
          */
+
         public void Run () {
             ListNode l1 = new ListNode (9) { };
             ListNode l2 = new ListNode (9);

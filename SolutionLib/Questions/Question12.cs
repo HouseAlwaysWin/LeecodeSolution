@@ -1,9 +1,10 @@
 using System;
 using System.Linq;
 using System.Text;
+using SolutionLib.Questions;
 using SolutionLib.Tools;
 
-namespace SolutionLib.Questions {
+namespace SolutionLib.Questions12 {
     public class Question12 : IQuestion {
         /*
         Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.

@@ -1,7 +1,7 @@
 using System;
 using SolutionLib.Tools;
 
-namespace SolutionLib.Questions {
+namespace SolutionLib.Questions67 {
     public class Question67 : IQuestion {
         /*  Given two binary strings, return their sum (also a binary string).
 

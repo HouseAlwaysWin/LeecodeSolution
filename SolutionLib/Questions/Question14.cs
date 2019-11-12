@@ -1,7 +1,7 @@
 using System;
 using SolutionLib.Tools;
 
-namespace SolutionLib.Questions
+namespace SolutionLib.Questions14
 {
     public class Question14 : IQuestion
     {

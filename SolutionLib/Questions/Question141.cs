@@ -1,6 +1,12 @@
 using SolutionLib.Tools;
 
-namespace SolutionLib.Questions {
+namespace SolutionLib.Questions141 {
+    public class ListNode {
+        public int val;
+        public ListNode next;
+        public ListNode (int x) { val = x; }
+
+    }
     public class Question141 : IQuestion {
         /*
         Given a linked list, determine if it has a cycle in it.
@@ -36,6 +42,7 @@ namespace SolutionLib.Questions {
 
         Can you solve it using O(1) (i.e. constant) memory?
          */
+
         public void Run () {
             ListNode noloop = new ListNode (1) {
                 next = new ListNode (2) {

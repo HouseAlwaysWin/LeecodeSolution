@@ -1,6 +1,6 @@
 using SolutionLib.Tools;
 
-namespace SolutionLib.Questions {
+namespace SolutionLib.Questions28 {
     public class Question28 : IQuestion {
         /*
         Implement strStr().
