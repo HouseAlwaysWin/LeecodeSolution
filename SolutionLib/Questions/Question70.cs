@@ -29,7 +29,7 @@ namespace SolutionLib.Questions70 {
          */
 
         public void Run () {
-            int x = 8;
+            
             System.Console.WriteLine ("V1:");
             // WatchDog.ShowPerformance (ClimbStairs, x);
         }
