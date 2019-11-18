@@ -1,16 +1,17 @@
 using System.Collections.Generic;
 using SolutionLib.Tools;
 
-namespace SolutionLib.Questions144 {
+namespace SolutionLib.Questions94 {
+
     public class TreeNode {
         public int val;
         public TreeNode left;
         public TreeNode right;
         public TreeNode (int x) { val = x; }
     }
-    public class Question144 : IQuestion {
+    public class Question94 : IQuestion {
         /*
-        Given a binary tree, return the preorder traversal of its nodes' values.
+        Given a binary tree, return the inorder traversal of its nodes' values.
 
         Example:
 
@@ -21,7 +22,7 @@ namespace SolutionLib.Questions144 {
             /
         3
 
-        Output: [1,2,3]
+        Output: [1,3,2]
         Follow up: Recursive solution is trivial, could you do it iteratively?
          */
         public void Run () {
@@ -40,35 +41,11 @@ namespace SolutionLib.Questions144 {
                 }
             };
 
-            WatchDog.ShowPerformance (PreorderTraversal, tree);
-        }
-        List<int> list = new List<int> ();
-        /// <summary>
-        /// Recursive
-        /// </summary>
-        /// <param name="root"></param>
-        /// <returns></returns>
-        public IList<int> PreorderTraversal (TreeNode root) {
-
-            if (root != null) {
-                list.Add (root.val);
-            }
-
-            if (root != null && root.left != null) {
-                PreorderTraversal (root.left);
-            }
-
-            if (root != null && root.right != null) {
-                PreorderTraversal (root.right);
-            }
-            return list;
+            WatchDog.ShowPerformance (InorderTraversal, tree);
         }
 
-        public IList<int> PreorderTraversalV2 (TreeNode root) {
-            var curr = root;
-            
+        public IList<int> InorderTraversal (TreeNode root) {
             return null;
         }
-
     }
 }
