@@ -1,3 +1,7 @@
+using System;
+using System.Collections.Generic;
+using SolutionLib.Tools;
+
 namespace SolutionLib.Questions209 {
 
     public class Question209 : IQuestion {
@@ -14,10 +18,44 @@ namespace SolutionLib.Questions209 {
         If you have figured out the O(n) solution, try coding another solution of which the time complexity is O(n log n). 
          */
         public void Run () {
-            WatchDog
+            int[] nums = new int[] { 1, 2, 3, 4, 5 };
+            WatchDog.ShowPerformance<int, int[], int> (MinSubArrayLenV1, 15, nums);
         }
-        public int MinSubArrayLen (int s, int[] nums) {
 
+        /// <summary>
+        /// Brute Force
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="nums"></param>
+        /// <returns></returns>
+        public int MinSubArrayLenV1 (int s, int[] nums) {
+            int min = nums.Length;
+            bool hasSeq = false;
+
+            for (int i = 0; i < nums.Length; i++) {
+                int count = 1;
+                int sum = 0;
+                for (int j = i; j < nums.Length; j++) {
+                    sum = sum + nums[j];
+                    if (sum >= s) {
+                        if (min >= count) {
+                            min = count;
+                            count = 1;
+                            sum = 0;
+                            hasSeq = true;
+                        }
+                    } else {
+                        count++;
+                    }
+                }
+            }
+            if (!hasSeq) {
+                min = 0;
+            }
+            return min;
+        }
+        public int MinSubArrayLenV2 (int s, int[] nums) {
+            return 0;
         }
     }
 }
