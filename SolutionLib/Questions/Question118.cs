@@ -42,7 +42,7 @@ namespace SolutionLib.Questions118 {
                     row.Add (prev[j - 1] + prev[j]);
                 }
                 row.Add (1);
-                list.Add (row);
+                list.Add (row); 
             }
 
             return list.ToArray ();
