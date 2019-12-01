@@ -1,3 +1,4 @@
+using System.Text;
 using SolutionLib.Tools;
 
 namespace SolutionLib.Questions151 {
@@ -21,11 +22,34 @@ namespace SolutionLib.Questions151 {
         Explanation: You need to reduce multiple spaces between two words to a single space in the reversed string.
          */
         public void Run () {
-            WatchDog.ShowPerformance (ReverseWords, "");
+            WatchDog.ShowPerformance (ReverseWords, "Explanation: You need to reduce multiple spaces between two words to a single space in the reversed string.");
         }
 
         public string ReverseWords (string s) {
-            
+            string word = string.Empty;
+            string reverse = string.Empty;
+            for (int i = s.Length - 1; i >= 0; i--) {
+                if (s[i] != ' ') {
+                    word = s[i].ToString () + word;
+                } else if (!string.IsNullOrWhiteSpace (word)) {
+                    if (reverse == string.Empty) {
+                        reverse = reverse + word;
+                    } else {
+                        reverse = reverse + " " + word;
+                    }
+                    word = string.Empty;
+                }
+
+            }
+            if (!string.IsNullOrWhiteSpace (word)) {
+                if (reverse == string.Empty) {
+                    reverse = reverse + word;
+                } else {
+                    reverse = reverse + " " + word;
+                }
+            }
+
+            return reverse;
         }
 
     }
