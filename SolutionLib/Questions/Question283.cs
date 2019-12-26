@@ -25,10 +25,11 @@ namespace SolutionLib.Questions283 {
 
             for (int i = 0; i < nums.Length; i++) {
                 if (nums[i] != 0) {
-                    nums[count++] = nums[i];
+                    nums[count] = nums[i];
                     if (i != count) {
                         nums[i] = 0;
                     }
+                    count++;
                 }
             }
         }
